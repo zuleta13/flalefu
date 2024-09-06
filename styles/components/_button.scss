@@ -1,0 +1,250 @@
+// SERVICES BUTTONS
+// ALL THESE ARE INSIDE .header-top__right
+.services .button {
+    height: min-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 0.3rem;
+
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+.services .button + * {
+    border-inline-start: 1px solid #e8e8e8;
+
+    @media (min-width: $media-tablet) {
+        border-inline-start: none;
+    }
+}
+
+.services .button > .button-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.services .button > .button-label {
+    display: none;
+    letter-spacing: 2px;
+}
+
+#contact-button {
+    @media (min-width: $media-desktop) {
+        padding-inline: 0;
+        .button-icon {
+            --svg-color: var(--gold-grey);
+        }
+
+        .button-label {
+            display: block;
+            color: var(--gold-grey);
+            text-transform: initial ;
+            font-size: 0.7rem;
+        }
+    }
+}
+
+#locations-button {
+    @media (min-width: $media-tablet) {
+        background-color: var(--gold-dark);
+        padding-inline: 1rem;
+        border: 1px solid var(--gold-dark);
+
+        .button-icon {
+            --svg-color: var(--white);
+        }
+
+        .button-label {
+            display: block;
+            color: var(--white);
+        }
+
+        &:hover {
+            background-color: var(--white);
+
+            > .button-icon {
+                --svg-color: unset;
+            }
+
+            > .button-label {
+                color: unset;
+            }
+        }
+    }
+
+    @media (min-width: $media-desktop) {
+        background-color: unset;
+        border: unset;
+        padding-inline: 0;
+
+        .button-icon {
+            --svg-color: unset;
+        }
+
+        .button-label {
+            color: unset;
+        }
+
+        &:hover {
+            background-color: unset;
+
+            > .button-icon {
+                --svg-color: unset;
+            }
+
+            > .button-label {
+                color: unset;
+            }
+        }
+    }
+}
+
+#appointments-button {
+    @media (min-width: $media-tablet) {
+        padding-inline: 1rem;
+        border: 1px solid var(--gold-dark);
+        
+        .button-label {
+            display: block;
+        }
+
+        &:hover {
+            background-color: var(--gold-dark);
+            color: var(--white);
+            --svg-color: var(--white);
+        }
+    }
+    
+    @media (min-width: $media-desktop) {
+        border: unset;
+        padding-inline: 0;
+
+        .button-label {
+            display: block;
+        }
+
+        &:hover {
+            background-color: unset;
+            color: var(--gold-dark);
+            --svg-color: unset;
+        }
+    }
+}
+
+#join-button {
+    @media (min-width: 770px) {
+        .button-label {
+            display: block;
+        }
+    }
+
+    @media (min-width: $media-desktop) {
+        .button-label {
+            padding-inline: 0;
+        }
+    }
+}
+
+// MENU TOGGLE BUTTON
+.menu-toggle {
+    display: block;
+    position: relative;
+    width: 14px;
+    height: 21px;
+    background-color: transparent;
+    // padding-inline-start: 1.7rem;
+    border: none;
+    overflow: hidden;
+    text-indent: 10rem;
+}
+
+.menu-toggle:before {
+    position: absolute;
+    display: block;
+    content: "";
+    text-indent: 0;
+    inset: 0;
+    background-image: url("../../images/hamburger.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+// COSTUMER ACTIONS BUTTONS
+// ALL THESE ARE INSIDE .header-bottom__right
+
+.customer-actions .button {
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    display: flex;
+    padding: 0.1rem;
+    overflow: hidden;
+    align-items: center;
+
+    & + * {
+        margin-inline-start: 0.25rem;
+    }
+
+    @media (min-width: $media-desktop) {
+        padding-block: 0.2rem;
+        padding-inline: calc(0.2rem + 0.25rem);
+        width: 2.25rem;
+        height: 1.5rem;
+        border-inline-start: 1px solid var(--light-gray);
+    }
+}
+
+.customer-actions .button-icon {
+    flex: 0 0 100%;
+    align-self: stretch;
+    --svg-color: var(--grey-dark);
+
+    &:hover {
+        --svg-color: var(--gold-dark);
+    }
+}
+
+.customer-actions .button-label {
+    text-indent: 10rem;
+    display: block;
+    overflow: hidden;
+}
+
+#basket {
+    padding-inline-end: 0;
+}
+
+// ATTEMPT AT INDEPENDENT BUTTONS
+.cta-button {
+    display: block;
+    margin: 0;
+    padding-block: 0.5rem;
+
+    border: 1px solid var(--gold-dark);
+    background-color: var(--white);
+    color: var(--gold-dark);
+    width: 100%;
+
+    text-transform: uppercase;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    & + .cta-button {
+        margin-block-start: 1rem;
+    }
+
+    &.bg {
+        background-color: var(--gold-dark);
+        color: var(--white);
+    }
+}

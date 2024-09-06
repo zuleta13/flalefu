@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile SCSS",
+            "type": "shell",
+            "command": "sass",
+            "args": [
+                "--watch", // Watches for changes in the SCSS files
+                "styles/style.scss:style.css" // input:output file
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Compiles SCSS to CSS"
+        }
+    ]
+}

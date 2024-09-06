@@ -1,0 +1,43 @@
+// CONSTANTS
+
+$media-tablet: 480px;
+$media-desktop: 1130px;
+
+:root {
+    @media (min-width: $media-desktop) {
+        font-size: 1.2rem;
+    }
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    --white: #fff;
+    --black: hsl(0, 0%, 10%);
+    --red: hsl(359, 89%, 41%);
+    --dropshadow-bg: hsla(0, 0%, 10%, 0.8);
+    --grey-dark: hsl(0, 0%, 27%);
+    --gold-dark: hsl(38, 43%, 59%);
+    --gold-grey: hsl(40, 15%, 53%);
+    --svg-color: hsl(38, 43%, 59%);
+    --light-gray: #e8e8e8;
+    margin-inline: 0;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    padding: 0;
+}
