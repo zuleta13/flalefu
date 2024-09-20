@@ -1,0 +1,69 @@
+{
+	"Menu Link": {
+		"prefix": "menu-link",
+		"body": [
+			"<a href=\"${1:/}\" class=\"menu-link\">${2:Item}</a>"
+		],
+		"description": "HTML structure for a menu link"
+	},
+	"Menu Compound Link": {
+		"prefix": "menu-compound-link",
+		"body": [
+			"<a class=\"menu-compound-link\" href=\"${1:/}\">",
+			"\t<span class=\"menu-link-shape\">",
+			"\t\t<svg class=\"menu-link-icon\">",
+			"\t\t\t<use xlink:href=\"#${2:shape_id}\"></use>",
+			"\t\t</svg>",
+			"\t</span>",
+			"\t<span>",
+			"\t\t${3:Link text}",
+			"\t</span>",
+			"</a>"
+		],
+		"description": "HTML structure for a compound menu link with an icon and text"
+	},
+	"Menu Button": {
+		"prefix": "menu-button",
+		"body": [
+			"<button class=\"menu-button bold\" type=\"button\">",
+			"\t$1",
+			"\t<span class=\"menu-button-arrow\">",
+			"\t\t<svg class=\"menu-button-icon\">",
+			"\t\t\t<use xlink:href=\"#arrow\"></use>",
+			"\t\t</svg>",
+			"\t</span>",
+			"</button>"
+		],
+		"description": "HTML structure for a menu button with an arrow icon"
+	},
+	"Menu Section": {
+		"prefix": "menu-section",
+		"body": [
+			"<div class=\"menu-section\">",
+			"\t<div class=\"menu-subsection type-A\">",
+			"\t\t<h3 class=\"menu-subsection-title\">${1:Menu title}</h3>",
+			"\t\t<ul>",
+			"\t\t\t<li>",
+			"\t\t\t\t$2",
+			"\t\t\t</li>",
+			"\t\t</ul>",
+			"\t</div>",
+			"</div>"
+		],
+		"description": "HTML structure for a menu section with a subsection and list"
+	},
+	"Menu Subsection": {
+		"prefix": "menu-subsection",
+		"body": [
+			"<div class=\"menu-subsection type-A\">",
+			"\t<h3 class=\"menu-subsection-title\">${1:Menu title}</h3>",
+			"\t<ul>",
+			"\t\t<li>",
+			"\t\t\t$2",
+			"\t\t</li>",
+			"\t</ul>",
+			"</div>"
+		],
+		"description": "HTML structure for a menu subsection with a title and list"
+	}
+}

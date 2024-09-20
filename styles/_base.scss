@@ -16,21 +16,29 @@ $media-desktop: 1130px;
 }
 
 body {
+    --corp-red: hsl(359, 89%, 41%);
+    --corp-gold: hsl(38, 43%, 59%);
+    --corp-blue: hsl(210, 54%, 49%);
+
     --white: #fff;
     --black: hsl(0, 0%, 10%);
-    --red: hsl(359, 89%, 41%);
+
     --dropshadow-bg: hsla(0, 0%, 10%, 0.8);
+
     --grey-dark: hsl(0, 0%, 27%);
     --gold-dark: hsl(38, 43%, 59%);
     --gold-grey: hsl(40, 15%, 53%);
-    --svg-color: hsl(38, 43%, 59%);
     --light-gray: #e8e8e8;
+
+    --svg-color: hsl(38, 43%, 59%);
+
     margin-inline: 0;
 
 }
 
 a {
     text-decoration: none;
+    color: var(--black);
 }
 
 img {
@@ -40,4 +48,42 @@ img {
 
 button {
     padding: 0;
+}
+
+.corp-red {
+    color: var(--corp-red);
+}
+
+.corp-gold {
+    color: var(--corp-gold);
+}
+
+.corp-blue {
+    color: var(--corp-blue);
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.small-caps {
+    font-variant: small-caps;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
 }

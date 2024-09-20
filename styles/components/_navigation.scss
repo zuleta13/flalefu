@@ -1,0 +1,86 @@
+.main-nav.mobile {
+
+    .nav-button {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        width: 2rem;
+        height: 2rem;
+        background-color: transparent;
+        border: none;
+        text-wrap: nowrap;
+        text-indent: 30rem;
+
+        &::after {
+            position: absolute;
+
+            display: block;
+            content: "";
+            width: 2rem;
+            height: 2rem;
+
+            background-position: center;
+            background-repeat: no-repeat;
+        
+            cursor: pointer;
+        }
+    }
+
+    .open-button {
+        &::after {
+            inset-block-start: -0.3rem;    
+            background-image: url("./images/hamburger.svg");
+        }
+    }
+
+    .close-button {
+        position: absolute;
+        inset-block-start: 0.4rem;
+        inset-inline-end: 1rem;
+        overflow: hidden;
+        &::after {
+            inset-block-start: -0.45rem;
+            inset-inline-start: -0.17rem;   
+            content: "\00D7";
+            text-indent: 0;
+            font-size: 4rem;
+            font-weight: 200;
+            line-height: 0.7;
+        }
+    }
+
+    .backdrop {
+        background-color: transparent;
+        transition: background-color 0.4s ease-in-out;
+    }
+
+    .menu-header {
+        position: relative;
+    }
+
+    .menu {
+        transform: translate(-18rem);
+        transition: transform 0.4s ease-in-out;
+    }
+
+}
+
+#main-menu {
+    
+}
+
+.main-nav.mobile.is-open {
+    > .menu {
+        transform: translate(0rem);
+    }
+
+    > .backdrop {
+        position: absolute;
+        inset: 0;
+        background-color: var(--dropshadow-bg);
+    }
+    #main-menu {
+        // display: none;
+        // transform: translate(0rem);
+    }
+}

@@ -1,244 +1,326 @@
-// MOBILE AND TABLET MENU
-nav.is-open {
+.menu {
+    --svg-color: var(--black);
 
-    > .nav-backdrop {
-        display: block;
-    }
+    display: flex;
+    flex-direction: column;
 
-    > .site-nav {
-        left: 0;
-    }
-}
-
-.nav-backdrop {
-    display: none;
-    
     position: absolute;
-    content: "";
-    inset: 0rem;
+    inset-block: 0;
+    inset-inline-start: 0;
 
-    z-index: 10;
-    
-    background-color: var(--dropshadow-bg);
-}
-
-.site-nav {
-    //This property is here at the moment because it makes testing the menu easier
-    //It lives in _site-header.scss under .header-bottom__left .site-nav
-    display: block;
-    
-    position: absolute;
-    inset: 0;
-    left: -18rem;
-    transition: left 0.4s ease;
     width: 18rem;
+    height: 100vh;
 
-    z-index: 20;
-
-    overflow-y: scroll;
-    scrollbar-width: thin;
-
-    margin: 0;
-    padding-inline-start: 0;
-    padding-block: 1rem;
     background-color: var(--white);
 
-    list-style: none;
-
-    @media (min-width: $media-desktop) {
-        padding: unset;
-        overflow: unset;
-    }
-
-    .site-nav__header {
-        position: fixed;
-        top: 0;
-        z-index: 30;
-        width: 18rem;
-
-        display: flex;
-        justify-content: space-between;
-
-        margin-block-end: 0.5rem;
-        padding-inline: 0.5rem;
-        padding-block: 0.5rem;
+    .menu-header {
+        padding: 0.5rem 1rem;
         border-block-end: 1px solid var(--light-gray);
-
-        background-color: var(--white);
-
-        .logo {
-            margin-block-start: 0.25rem;
-            margin-inline-start: 0.5rem;
-            width: 100px;
-        }
-
-        @media (min-width: $media-desktop) {
-            display: none;
-        }
+        overflow: hidden;
     }
-
-    .close-button {
-        width: 2rem;
-        height: 2rem;
-        border: unset;
-        background-color: unset;
-        position: relative;
-        text-indent: 20rem;
-        cursor: pointer;
+    
+    .menu-body {
+        flex: 1;
         overflow: hidden;
 
-        &::before {
-            display: block;
-            content: "\00D7";
-            font-size: 3rem;
-            line-height: 0.5;
-            text-indent: 0;
-            position: absolute;
-            top: 0.1rem;
-            left: 0.1rem;
-        }
+        position: relative;
+
     }
 
-    & > .menu-item {
-        position: relative;
-        top: 2.5rem;
+    .back-button {
+        display: block;
+        position: absolute;
+        inset: 0;
+        inset-block-start: 0.4rem;
+        inset-inline-start: 1rem;
 
-        padding-inline: 1rem;
+        transform: translate(18rem);
+        transition: transform 0.4s ease-in-out;
 
-        @media (min-width: $media-desktop) {
-            padding-inline: unset;
-            position: static;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+
+        background-color: transparent;
+        text-indent: 30rem;
+        text-wrap: nowrap;
+
+        cursor: pointer;
+
+        &.is-active {
+            transform: translate(0);
         }
 
-        > a {
-            display: flex;
-            justify-content: space-between;
-            padding-block: 0.75rem;
-            color: var(--grey-dark);
-            text-wrap: nowrap;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            font-weight: 600;
+        &::after {
+            position: absolute;
+            inset: 0;
 
-            @media (min-width: $media-desktop) {
-                display: inline-block;
-                padding: unset;
-                padding-block: 0.5rem;
-                padding-inline-end: 0.2rem;
-                font-size: 0.7rem;
-            }
-        }
+            transform: translate(0, 0.25rem) rotate(-90deg);
 
-        > a::after {
+            display: block;
             content: "";
-            display: inline-block;
-            width: 18px;
-            height: 11px;
-
-            position: relative;
-            top: 4px;
+            width: 1.5rem;
+            height: 1.5rem;
 
             background-image: url("./images/arrow.svg");
             background-position: center;
+            background-repeat: no-repeat;
             background-size: contain;
-
-            transform: rotate(90deg);
-
-            @media (min-width: $media-desktop) {
-                width: 10px;
-                height: 6px;
-                top: -0.1rem;
-                left: 0.4rem;
-                transition: transform 0.2s ease-in;
-                transform: rotate(0deg);
-            }
         }
-
-        &:hover > a::after {
-            @media (min-width: $media-desktop) {
-                transform: rotate(180deg);
-            }
-        }
-
     }
 
-    .mobile > .login {
-        margin-block: 2rem;
-        padding-block-end: 2rem;
-        border-block-end: 2px solid var(--black);
+    .main-menu,
+    .lvl2-menu,
+    .lvl3-menu {
+        position: absolute;
+        inset: 0;
+
+        padding-inline: 1.5rem;
+        
+        overflow-y: auto;
+        scrollbar-width: thin;
     }
 
-    & > .deals::before {
-        display: none;
+    .logo {
+        transform: translate(-18rem);
+        transition: transform 0.4s ease-in-out;
+        > img {
+            max-width: 100px;
+        }
+        &.is-active {
+            transform: translate(0rem);
+        }
+    }
 
-        @media (min-width: $media-desktop) {
-            display: inline;
-            content: "";
+
+    hr {
+        border: none;
+        border-block-start: 1px solid black;
+        margin-block: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        display: block;
+    }
+
+    .menu-button,
+    .menu-link,
+    .menu-compound-link {
+        width: 100%;
+        margin: 0;
+        padding-block: 0.75rem;
+        cursor: pointer;
+    }
     
-            position: relative;
-            top: 0.1rem;
+    .menu-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        background-color: var(--white);
+        border: none;
+    }
+
+    .menu-button-arrow {
+        transform: rotate(90deg);
+        width: 1rem;
+        height: 1rem;
+        position: relative;
+    }
     
-            padding-inline-start: 1rem;
-            border-inline-start: 1px solid var(--light-gray);
-            line-height: 0.2;
+    .menu-button-icon {
+        position: absolute;
+        inset-block-start: -3px;
+        inset-inline-start: -1px;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .menu-compound-link {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .menu-link-icon {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .menu-link-arrow {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    #audiology-menu {
+        .menu-link-arrow {
+            background-color: var(--corp-red);
+        }
+        .menu-link-icon {
+            --svg-color: var(--white);
         }
     }
 
-    > .audiology a {
-        color: var(--red);
-    }
-
-    > .deals a,
-    > .sight a,
-    > .blog a {
-        font-weight: 400;
-    }
-
-    .menu-item.mobile {
-        margin-block-start: 1rem;
-    }
-
-    .quick-links {
+    .menu-section {
         padding-block: 1rem;
-        border-block: 1px solid black;
+    }
+    
+    .menu-subsection-title {
+        margin: 0;
+        margin-block-start: 0.75rem;
+        margin-block-end: 1rem;
 
-        .ql-section {
-            padding-block-start: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
 
-            & + .ql-section {
-                margin-block-start: 0.25rem;
-            }
-        }
+        letter-spacing: 1px;
+    }
 
-        .title {
-            display: block;
-            margin-block-end: 0.5rem;
-            color: var(--gold-dark);
-
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .ql-link {
-            display: block;
-            padding-block: 0.5rem;
-            padding-inline-start: 0.3rem;
-            color: var(--black);
-        }
-
-        .link-text {
-            display: block;
-            margin-block-end: 0.2rem;
-            font-weight: 600;
-        }
-
-        .link-extra {
-            font-style: italic;
-        }
-
-        #services .link-text {
-            font-weight: unset;
+    .menu-subsection.type-B {
+        > ul {
+            padding-inline-start: 1rem;
         }
     }
+
+    .menu-subsection.type-C {
+        padding-block: .75rem;
+    }
+
+    #audiology .menu-button-icon {
+        --svg-color: var(--corp-red);
+    }
+
+    .glasses-shape { 
+        
+        .menu-link-icon {
+            width: 3rem;
+            height: 1.2rem;
+        }
+
+        .menu-link-shape {
+            position:relative;
+            top: 0.1rem;
+        }
+    }
+
+    // MENU TRANSITIONS
+
+
+    .main-menu {
+        transform: translate(-18rem);
+        transition: transform 0.4s ease-in-out;
+        &.is-active {
+            transform: translate(0rem);
+        }
+    }
+
+    .lvl2-menu {
+        transform: translate(18rem);
+        transition: transform 0.4s ease-in-out;
+        &.is-active {
+            transform: translate(0rem);
+        }
+        &.is-waiting {
+            transform: translate(-18rem);
+        }
+    }
+
+    .lvl3-menu {
+        transform: translate(18rem);
+        transition: transform 0.4s ease-in-out;
+        &.is-active {
+            transform: translate(0rem);
+        }
+    }
+
+    // #eyeglasses-menu {
+    //     display: none;
+    // }
+
+    // #contacts-menu {
+    //     display: none;
+    // }
+    
+    // #magic-menu {
+    //     display: none;
+    // }
+
+    // #audiology-menu {
+    //     display: none;
+    // }
+    
+    // #sight-menu {
+    //     display: none;
+    // }
+    
+    // #sunglasses-brands-menu {
+    //     display: none;
+    // }
+
+    // #sunglasses-styles-menu {
+    //     display: none;
+    // }
+
+    // #sunglasses-shapes-menu {
+    //     display: none;
+    // }
+
+    // #eyeglasses-brands-menu {
+    //     display: none;
+    // }
+
+    // #eyeglasses-styles-menu {
+    //     display: none;
+    // }
+    
+    // #eyeglasses-shapes-menu {
+    //     display: none;
+    // }
+    
+    // #contacts-brands-menu {
+    //     display: none;
+    // }
+
+    // #contacts-sight-menu {
+    //     display: none;
+    // }
+
+    // #contacts-periodicity-menu {
+    //     display: none;
+    // }
+
+    // #contacts-laboratories-menu {
+    //     display: none;
+    // }
+
+    // #liquids-tears-menu {
+    //     display: none;
+    // }
+
+    // #sight-kids-menu {
+    //     display: none;
+    // }
+
+    // #sight-sight-correction {
+    //     display: none;
+    // }
+
+    // #sight-face-shape {
+    //     display: none;
+    // }
+
+    // #special-services-menu {
+    //     display: none;
+    // }
 }

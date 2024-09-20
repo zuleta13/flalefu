@@ -1,0 +1,123 @@
+Diseño de la funcionalidad de la versión móvil del menú
+
+    Consideraciones:
+        - cada botón tiene su id
+        - cada slider del menú tiene su id, así como clases asignadas
+
+    Fucionalidad:
+        - presionar botón para abrir
+            - aparece el backdrop
+            - se desplaza el menú hacia la derecha (menú completo: header y body)
+            - presionar sobre cualquier botón del menú
+                - desplazar a la izquierda el menú principal (fuera del contenedor)
+                - desplazar a la izquierda el menú de nivel 2 seleccionado (dentro del contenedor)
+                    - regresar al menú principal
+                        - menú de nivel 2 se desplaza a la derecha (fuera de la vista)
+                        - menu principal se desplaza a la derecha (a la vista)
+                    - pulsar sobre cualquier botón del menú de nivel 2
+                        - menú de nivel 2 se desplaza a la izquierda, fuera de la vista
+                        - menú de nivel 3 se desplaza a la izquierda, a la vista
+                            - seleccionar cualquier opción lleva a la página correspondiente
+                            - volver al menú de nivel 2
+            - cerrar el menú 
+                - deplazar el menú hacia la izquierda (fuera de la pantalla), manteniendo su estado actual
+                - desaparece el backdrop
+
+    Técnica para ejecutar los desplazamientos que retiran y ponen los diferentes menús a la vista:
+        Mediante el uso de JS se añadirán o retirarán clases del tipo .is-active y .is-waiting a los 
+        elementos involucrados.
+
+        .is-active pone el elemento en el foco
+        .is-waiting pone el elemento a la izquierda del foco, a la espera de ser recuperado
+
+        El foco es el espacio visible del menú.
+
+        Antes, es necesario establecer el estado inicial de los distintos elementos de acuerdo a su nivel 
+        en el menú:
+            - menú principal:
+                su estado inicial es estar visible, por tanto, transform: transition(0)
+            - menú nivel 2:
+                el estado inicial de esos elementos es oculto y a la derecha: transform: transition(18rem)
+            - menú nivel 3:
+                igual que los elementos de nivel 2: transform: transition(18rem)
+
+        Como máximo habrá dos elementos en espera (con la clase .is-waiting): el menú principal y uno de los del nivel 2
+
+        Por supuesto, pulsar el botón back, recuperará el menú en espera del nivel inmediatamente anterior al actual:
+            - nivel actual 3 -> nivel a recuperar 2
+            - nivel actual 2 -> nivel a recuperar principal
+        
+        La manera de identificar, o de seleccionar, mejor dicho, el elemento que debe recuperarse, será mediante el nombre 
+        de la clase .is-waiting. Habrá que tener en cuenta el nivel del elemento actual.
+
+        Otra manera sería guardar el elemento del que se procede en una variable. Se pueden guardar los identificadores de los 
+        elementos en orden en un array. El array tendría dos posiciones. La primera para el identificador del menú principal y 
+        la segunda para el identificador del menú de nivel dos que corresponda.
+
+    Entorno:
+        - waitingList[] vacío
+        - variables para todos los elementos del menú
+
+    Pseudocódigo:
+        - inicio
+            - menú abierto
+                - pulsación en un botón del menu principal
+                    - waitingList[].push() <- se guarda el id del menú principal
+                    - se añade la clase .is-waiting al elemento del menu principal
+                    - se añade la clase .is-active al elemento de menú de nivel 2
+                    - pulsación en un botón del menú de nivel 2
+                        - waitingList[].push() <- se guarda el id del menu de nivel 2 correspondiente
+                        - se añade la clase .is-waiting al elemento del menu de nivel 2
+                        - se añade la clase .is-active al elemento del menú de nivel 3
+                        - pulsación en el botón de regreso
+                            - se recupera el identificador del elemento de nivel 2 de waitingList[]
+                            - waitingList[].pop() -> se descarta el último elemento del array
+                            - se le quita la clase .is-waiting al elemento de nivel 2 (vuelve al foco desde la izquierda)
+                            - se le quita la clase .is-active al elemento de nivel 3 (desaparece hacia la derecha)
+
+
+    Notas:
+        - en el CSS, la clase .is-active debe aparecer antes que la clase .is-waiting para que la segunda pueda sobrescribir 
+        las declaraciones de la primera.
+        - si lo anterior no funcionara, se puede hacer un toggle de la clase .is-active para quitarla del elemento y hacer que solo 
+        tenga la clase .is-waiting.
+        - todo lo descrito hasta ahora es la funcionalidad del botón back:
+            - al presionar back, se debe poner en marcha una función que realice la acción descrita en el pseudocódigo
+
+    Pseudocódigo:
+        - inicio
+            - abrir menú <- botón open-menu
+            - pulsación sobre cualquier elemento del menú
+                - guardar el id del menu de nivel anterior
+            - volver al nivel anterior
+                - recuperar el identificador
+                - borrar el identificador
+                - toggle de las clases 
+
+    Función back:
+        - parámetros:
+            id del nivel anterior
+            id del nivel actual
+        -diseño:
+            - toggle de la clase .is-waiting del anterior
+            - toggle de la clase .is-active del actual
+
+
+    Funcion back
+        - parámetro
+            menuLevels[] -> contiene las variables de los niveles, incluido el actual
+
+        - diseño
+            inicio
+                si menuLevels no está vacío y estamos en el nivel 2
+                    nivel2 -> se esconde
+                    back -> se esconde
+                    main -> aparece
+                    logo -> aparece
+                    elimino el id de nivel2 de menuLevels
+                si no está vacío y estamos en el nivel 3
+                    nivel3 -> se esconde
+                    nivel2 -> aparece
+                    elimino el id de nivel3 de menuLevels
+
+
