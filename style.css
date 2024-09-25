@@ -742,7 +742,6 @@ body {
   inset-block: 0;
   inset-inline-start: 0;
   width: 18rem;
-  height: 100vh;
   background-color: var(--white);
 }
 .menu .menu-header {

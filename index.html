@@ -213,10 +213,11 @@
                                     alt="Allefflu">
                             </div>
                             <button id="close-button"
-                            class="nav-button close-button" type="button">Close
-                            navigation</button>
+                                class="nav-button close-button" type="button">
+                                Close navigation</button>
                             <!-- back button -->
-                            <button id="back-button" class="back-button" type="button">
+                            <button id="back-button" class="back-button"
+                                type="button">
                                 Back
                             </button>
                             <!-- back to... -->
@@ -417,7 +418,8 @@
                                     <div class="menu-subsection type-B">
                                         <ul class="">
                                             <li class="menu-item">
-                                                <button id="sunglasses-brands-button"
+                                                <button
+                                                    id="sunglasses-brands-button"
                                                     class="menu-button bold"
                                                     type="button">
                                                     By brand
@@ -432,7 +434,8 @@
                                                 </button>
                                             </li>
                                             <li class="menu-item">
-                                                <button id="sunglasses-styles-button"
+                                                <button
+                                                    id="sunglasses-styles-button"
                                                     class="menu-button bold uppercase"
                                                     type="button">
                                                     By style
@@ -447,7 +450,8 @@
                                                 </button>
                                             </li>
                                             <li class="menu-item">
-                                                <button id="sunglasses-shapes-button"
+                                                <button
+                                                    id="sunglasses-shapes-button"
                                                     class="menu-button bold"
                                                     type="button">
                                                     By shape
@@ -521,7 +525,8 @@
                                     <div class="menu-subsection type-B">
                                         <ul class="">
                                             <li class="menu-item">
-                                                <button id="eyeglasses-brands-button"
+                                                <button
+                                                    id="eyeglasses-brands-button"
                                                     class="menu-button bold"
                                                     type="button">
                                                     By brand
@@ -536,7 +541,8 @@
                                                 </button>
                                             </li>
                                             <li class="menu-item">
-                                                <button id="eyeglasses-styles-button"
+                                                <button
+                                                    id="eyeglasses-styles-button"
                                                     class="menu-button bold uppercase"
                                                     type="button">
                                                     By style
@@ -551,7 +557,8 @@
                                                 </button>
                                             </li>
                                             <li class="menu-item">
-                                                <button id="eyeglasses-shapes-button"
+                                                <button
+                                                    id="eyeglasses-shapes-button"
                                                     class="menu-button bold"
                                                     type="button">
                                                     By shape
@@ -911,7 +918,8 @@
                                             Your sight</h3>
                                         <ul>
                                             <li>
-                                                <button id="kids-specialists-button" class="menu-button bold"
+                                                <button id="kids-specialists-button"
+                                                    class="menu-button bold"
                                                     type="button">
                                                     Kids specialists
                                                     <span class="menu-button-arrow">
@@ -925,7 +933,8 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button id="sight-correction-button" class="menu-button bold"
+                                                <button id="sight-correction-button"
+                                                    class="menu-button bold"
                                                     type="button">
                                                     Sight correction
                                                     <span class="menu-button-arrow">
@@ -939,7 +948,8 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button id="sight-tips-button" class="menu-button bold"
+                                                <button id="sight-tips-button"
+                                                    class="menu-button bold"
                                                     type="button">
                                                     Tips
                                                     <span class="menu-button-arrow">
@@ -953,7 +963,8 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button id="special-services-button" class="menu-button bold"
+                                                <button id="special-services-button"
+                                                    class="menu-button bold"
                                                     type="button">
                                                     Special services
                                                     <span class="menu-button-arrow">
@@ -1782,7 +1793,7 @@
         const audiologyMenu = document.getElementById("audiology-menu");
         const sightButton = document.getElementById("sight-button");
         const sightMenu = document.getElementById("sight-menu");
-        
+
         const sunglassesBrandsButton = document.getElementById("sunglasses-brands-button");
         const sunglassesBrandsMenu = document.getElementById("sunglasses-brands-menu");
         const sunglassesStylesButton = document.getElementById("sunglasses-styles-button");
@@ -1797,7 +1808,7 @@
         const eyeglassesShapesButton = document.getElementById("eyeglasses-shapes-button");
         const eyeglassesShapesMenu = document.getElementById("eyeglasses-shapes-menu");
 
-        function menuBack (array) {
+        function menuBack(array) {
             array[array.length - 1].classList.toggle('is-active');
             if (array.length === 1) {
                 backButton.classList.toggle('is-active');
@@ -1871,42 +1882,42 @@
             backButton.classList.toggle('is-active');
         });
 
-        sunglassesBrandsButton.addEventListener('click', ()=>{
+        sunglassesBrandsButton.addEventListener('click', () => {
             menuLevels.push(sunglassesBrandsMenu);
             sunglassesMenu.classList.toggle("is-waiting");
             sunglassesBrandsMenu.classList.toggle("is-active");
         });
 
-        sunglassesStylesButton.addEventListener('click', ()=>{
+        sunglassesStylesButton.addEventListener('click', () => {
             menuLevels.push(sunglassesStylesMenu);
             sunglassesMenu.classList.toggle("is-waiting");
             sunglassesStylesMenu.classList.toggle("is-active");
         });
 
-        sunglassesShapesButton.addEventListener('click', ()=>{
+        sunglassesShapesButton.addEventListener('click', () => {
             menuLevels.push(sunglassesShapesMenu);
             sunglassesMenu.classList.toggle("is-waiting");
             sunglassesShapesMenu.classList.toggle("is-active");
         });
 
-        eyeglassesBrandsButton.addEventListener('click', ()=>{
+        eyeglassesBrandsButton.addEventListener('click', () => {
             menuLevels.push(eyeglassesBrandsMenu);
             eyeglassesMenu.classList.toggle("is-waiting");
             eyeglassesBrandsMenu.classList.toggle("is-active");
         });
 
-        eyeglassesStylesButton.addEventListener('click', ()=>{
+        eyeglassesStylesButton.addEventListener('click', () => {
             menuLevels.push(eyeglassesStylesMenu);
             eyeglassesMenu.classList.toggle("is-waiting");
             eyeglassesStylesMenu.classList.toggle("is-active");
         });
 
-        eyeglassesShapesButton.addEventListener('click', ()=>{
+        eyeglassesShapesButton.addEventListener('click', () => {
             menuLevels.push(eyeglassesShapesMenu);
             eyeglassesMenu.classList.toggle("is-waiting");
             eyeglassesShapesMenu.classList.toggle("is-active");
         });
-        
+
         backButton.addEventListener('click', () => {
             menuBack(menuLevels);
         });
