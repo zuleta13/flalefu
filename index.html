@@ -1857,14 +1857,17 @@
 
         navOpenButton.addEventListener('click', () => {
             mainNav.classList.toggle('is-open');
+            document.body.classList.toggle('no-scroll');
         });
 
         navBackdrop.addEventListener('click', () => {
             mainNav.classList.toggle('is-open');
+            document.body.classList.toggle('no-scroll');
         });
 
         navCloseButton.addEventListener('click', () => {
             mainNav.classList.toggle('is-open');
+            document.body.classList.toggle('no-scroll');
         });
 
         sunglassesButton.addEventListener('click', () => {
