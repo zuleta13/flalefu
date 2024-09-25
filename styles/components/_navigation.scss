@@ -75,7 +75,7 @@
     }
 
     > .backdrop {
-        position: absolute;
+        position: fixed;
         inset: 0;
         background-color: var(--dropshadow-bg);
     }

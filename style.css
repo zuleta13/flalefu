@@ -742,7 +742,7 @@ body {
   --svg-color: var(--black);
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   inset-block: 0;
   inset-inline-start: 0;
   width: 18rem;
@@ -983,7 +983,7 @@ body {
   transform: translate(0rem);
 }
 .main-nav.mobile.is-open > .backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-color: var(--dropshadow-bg);
 }
