@@ -10,22 +10,13 @@
 }
 
 .header-top__left {
-    // while the layout of the upper header is made
-    // display: none;
-    width: 100px;
-    position: absolute;
-    top: 3.4rem;
-    left: 3rem;
-
-
-    @media (min-width: $media-tablet) {
-        top: 3.5rem;
-    }
-
+    // this is the area of the header where the logo for the desktop version is
+    // it is hidden by default and shown only when desktop width is met
+    display: none;
     @media (min-width: $media-desktop) {
-        // display: block;
+        display: block;
         position: static;
-        flex: auto;
+        flex: 0 0 200px;
     }
 }
 
@@ -63,20 +54,41 @@
     align-items: center;
     border-block-start: 1px solid var(--light-gray);
     padding-inline: 0.5rem;
-    padding-block-start: 0.8rem;
+    padding-block: 0.3rem;
+    background-color: var(--white);
     @media (min-width: $media-desktop) {
         border-block-start: unset;
         border-block-end: 1px solid var(--light-gray);
         padding-block-end: 0.4rem;
     }
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
 }
 
-// .header-bottom__left {
-//     // border: 1px solid red;
-//     // padding-block-start: 0.5rem;
-// }
+.header-bottom__left {
+    // padding-block-start: 0.5rem;
+    // flex: 1;
+    display: flex;
+    align-items: center;
+}
 
-.header-bottom__left > .menu-toggle {
+
+#open-button {
+    @media (min-width: $media-desktop) {
+        display: none;
+    }
+}
+
+.header-bottom__left > .logo__img {
+
+    // the height value ensures the logo and the menu icon have the same height
+    // the height of the menu icon (24px) is smaller than its real size (32px)
+    height: 24px;
+    flex: 0 0 100px;
     @media (min-width: $media-desktop) {
         display: none;
     }
@@ -86,7 +98,7 @@
     //Toggle the value of the display property between none and block to test the menu
     // This property lives here because it controls the layout
     // display: none;
-
+    
     @media (min-width: $media-desktop) {
         position: static;
         display: flex;
@@ -96,13 +108,6 @@
         > .mobile {
             display: none;
         }
-    }
-}
-
-.menu-item > .drawer {
-    display: none;
-    @media (min-width: $media-desktop) {
-        display: none;
     }
 }
 

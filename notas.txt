@@ -1,0 +1,17 @@
+1-  Poner logotipos donde hagan falta para evitar complicaciones con otros elementos.
+    Esto es porque he intentado usar un único logotipo en el html y he ido cambiando 
+    su posicionamiento para adaptarlo a los distintos tamaños de la pantalla.
+    El problema es que cuando hay que mezclar varias técnicas (posicionamiento, 
+    añadir clases a elementos...) todo se vuelve demasiado complejo y no merece la pena 
+    escribir código complicado en js cuando añadir un elemento más, en este caso, una imagen, 
+    resuelve el problema.
+1-Hecho
+
+2-  Terminar el menú: hacer que cada botón lleve al submenú correspondiente.
+    Poner una página con un botón enorme para regresar a la página principal 
+    cuando se pulse uno de los enlaces.
+
+3-  Hacer que la barra inferior de la cabecera permanezca pegada al borde superior 
+    para que no desaparecza cuando haya desplazamiento. Versión móvil y tablet.
+    En la versión de escritorio, toda la cabecera permanece fijada al borde superior 
+    de la pantalla.

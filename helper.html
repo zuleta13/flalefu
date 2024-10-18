@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        magicClipsButton.addEventListener('click', () => {
+            menuLevels.push(magicClipsMenu);
+            magicMenu.classList.toggle("is-waiting");
+            magicClipsMenu.classList.toggle("is-active");
+        });
+
+        magicSportButton.addEventListener('click', () => {
+            menuLevels.push(magicSportMenu);
+            magicMenu.classList.toggle("is-waiting");
+            magicSportMenu.classList.toggle("is-active");
+        });
+
+        magicTipsButton.addEventListener('click', () => {
+            menuLevels.push(magicTipsMenu);
+            magicMenu.classList.toggle("is-waiting");
+            magicTipsMenu.classList.toggle("is-active");
+        });
+
+        magicShapeButton.addEventListener('click', () => {
+            menuLevels.push(magicShapeMenu);
+            magicMenu.classList.toggle("is-waiting");
+            magicShapeMenu.classList.toggle("is-active");
+        });
+        
+    </script>
+
+    
+</body>
+
+
+</html>
