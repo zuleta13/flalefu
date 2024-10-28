@@ -202,8 +202,9 @@
 
         <section id="header-bottom" class="header-bottom">
             <div class="header-bottom__left">
-                <nav id="main-nav" class="main-nav mobile">
-                    <button id="open-button" class="nav-button open-button"
+                <!-- MOBILE NAVIGATION AND LOGO -->
+                <nav id="main-nav-mobile" class="main-nav mobile">
+                    <button id="open-button" class="nav-button open-button mobile"
                         type="button">Open navigation</button>
                     <div id="nav-backdrop" class="backdrop"></div>
                     <div id="nav-menu" class="menu">
@@ -2007,9 +2008,10 @@
                         </div>
                     </div>
                 </nav>
-                <div class="logo__img">
+                <div class="logo__img mobile">
                     <img src="./images/logo-afflelou.svg" alt="Allefflu">
                 </div>
+                <!-- DESKTOP NAVIGATION -->
             </div>
 
             <div class="header-bottom__right customer-actions">
@@ -2091,13 +2093,15 @@
 
         const menuLevels = [];
 
+        const body = document.body;
+
         const headerTop = document.getElementById('header-top');
         const headerBottom = document.getElementById('header-bottom');
         const mainLogo = document.getElementById('main-logo');
         const mainSection = document.getElementById('main');
 
         const navOpenButton = document.getElementById("open-button");
-        const mainNav = document.getElementById("main-nav");
+        const mainNavMobile = document.getElementById("main-nav-mobile");
         const navMenu = document.getElementById("nav-menu");
         const navBackdrop = document.getElementById("nav-backdrop");
         const navCloseButton = document.getElementById("close-button");
@@ -2178,15 +2182,25 @@
             array.pop();
         }
 
+        window.addEventListener('scroll', ()=>{
+            if (window.scrollY > headerTop.clientHeight) {
+                headerBottom.classList.add('fixed');
+                body.style.marginTop = headerTop.clientHeight + 'px';
+            } else {
+                headerBottom.classList.remove('fixed');
+                body.style.marginTop = '0px';
+            }
+        });
+
         navOpenButton.addEventListener('click', () => {
-            mainNav.classList.toggle('is-open');
-            mainNav.style.zIndex = '400';
-            document.body.classList.toggle('no-scroll');
+            mainNavMobile.classList.toggle('is-open');
+            mainNavMobile.style.zIndex = '400';
+            body.classList.toggle('no-scroll');
         });
 
         navBackdrop.addEventListener('click', () => {
-            mainNav.classList.toggle('is-open');
-            document.body.classList.toggle('no-scroll');
+            mainNavMobile.classList.toggle('is-open');
+            body.classList.toggle('no-scroll');
         });
 
         backButton.addEventListener('click', () => {
@@ -2194,8 +2208,8 @@
         });
 
         navCloseButton.addEventListener('click', () => {
-            mainNav.classList.toggle('is-open');
-            document.body.classList.toggle('no-scroll');
+            mainNavMobile.classList.toggle('is-open');
+            body.classList.toggle('no-scroll');
         });
 
         sunglassesButton.addEventListener('click', () => {

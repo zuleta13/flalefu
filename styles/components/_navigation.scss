@@ -1,7 +1,4 @@
 .main-nav.mobile {
-    @media (min-width:$media-desktop) {
-        display: none;
-    }
     
     .nav-button {
         display: block;
@@ -68,10 +65,6 @@
 
 }
 
-#main-menu {
-    
-}
-
 .main-nav.mobile.is-open {
     > .menu {
         transform: translate(0rem);
@@ -82,8 +75,5 @@
         inset: 0;
         background-color: var(--dropshadow-bg);
     }
-    #main-menu {
-        // display: none;
-        // transform: translate(0rem);
-    }
 }
+

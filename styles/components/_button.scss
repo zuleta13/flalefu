@@ -149,32 +149,6 @@
     }
 }
 
-// MENU TOGGLE BUTTON
-.menu-toggle {
-    display: block;
-    position: relative;
-    width: 14px;
-    height: 21px;
-    background-color: transparent;
-    // padding-inline-start: 1.7rem;
-    border: none;
-    overflow: hidden;
-    text-indent: 10rem;
-}
-
-.menu-toggle:before {
-    position: absolute;
-    display: block;
-    content: "";
-    text-indent: 0;
-    inset: 0;
-    background-image: url("./images/hamburger.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-
-
 // COSTUMER ACTIONS BUTTONS
 // ALL THESE ARE INSIDE .header-bottom__right
 

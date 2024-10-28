@@ -76,39 +76,12 @@
     align-items: center;
 }
 
-
-#open-button {
-    @media (min-width: $media-desktop) {
-        display: none;
-    }
-}
-
 .header-bottom__left > .logo__img {
-
     // the height value ensures the logo and the menu icon have the same height
     // the height of the menu icon (24px) is smaller than its real size (32px)
     height: 24px;
     flex: 0 0 100px;
-    @media (min-width: $media-desktop) {
-        display: none;
-    }
-}
-
-.header-bottom__left .site-nav {
-    //Toggle the value of the display property between none and block to test the menu
-    // This property lives here because it controls the layout
-    // display: none;
-    
-    @media (min-width: $media-desktop) {
-        position: static;
-        display: flex;
-        gap: 0 1.5rem;
-        margin-block: 0;
-
-        > .mobile {
-            display: none;
-        }
-    }
+    // border: 1px solid red;
 }
 
 .header-bottom__right {

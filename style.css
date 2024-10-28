@@ -395,6 +395,12 @@ main p {
   font-size: 1.5rem;
 }
 
+@media (min-width: 1130px) {
+  .mobile {
+    display: none;
+  }
+}
+
 body {
   font-family: Montserrat, sans-serif;
 }
@@ -479,32 +485,9 @@ body {
   align-items: center;
 }
 
-@media (min-width: 1130px) {
-  #open-button {
-    display: none;
-  }
-}
-
 .header-bottom__left > .logo__img {
   height: 24px;
   flex: 0 0 100px;
-}
-@media (min-width: 1130px) {
-  .header-bottom__left > .logo__img {
-    display: none;
-  }
-}
-
-@media (min-width: 1130px) {
-  .header-bottom__left .site-nav {
-    position: static;
-    display: flex;
-    gap: 0 1.5rem;
-    margin-block: 0;
-  }
-  .header-bottom__left .site-nav > .mobile {
-    display: none;
-  }
 }
 
 .header-bottom__right {
@@ -659,29 +642,6 @@ body {
   #join-button .button-label {
     padding-inline: 0;
   }
-}
-
-.menu-toggle {
-  display: block;
-  position: relative;
-  width: 14px;
-  height: 21px;
-  background-color: transparent;
-  border: none;
-  overflow: hidden;
-  text-indent: 10rem;
-}
-
-.menu-toggle:before {
-  position: absolute;
-  display: block;
-  content: "";
-  text-indent: 0;
-  inset: 0;
-  background-image: url("./images/hamburger.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
 }
 
 .customer-actions .button {
@@ -936,11 +896,6 @@ body {
   transform: translate(0rem);
 }
 
-@media (min-width: 1130px) {
-  .main-nav.mobile {
-    display: none;
-  }
-}
 .main-nav.mobile .nav-button {
   display: block;
   position: relative;
